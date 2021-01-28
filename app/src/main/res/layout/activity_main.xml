@@ -6,24 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <Button
-        android:id="@+id/buttonEj1"
+        android:id="@+id/bEj1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="48dp"
+        android:onClick="toActivity1"
         android:text="Activadad 1 >"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBienvenida" />
+
+    <Button
+        android:id="@+id/bEj2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activadad 2 >"
+        android:onClick="toActivity2"
+        app:layout_constraintEnd_toEndOf="@+id/bEj1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bEj1" />
+    <Button
+        android:id="@+id/bEJ3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activadad 3 >"
+        android:onClick="toActivity3"
+        app:layout_constraintEnd_toEndOf="@+id/bEj2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bEj2" />
+    <Button
+        android:id="@+id/bEj4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activadad 4 >"
+        android:onClick="toActivity4"
+        app:layout_constraintEnd_toEndOf="@+id/bEJ3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bEJ3" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
-        android:text="Proyecto zeme v2"
+        android:text="Bienvenido al Proyecto zemedu v2"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Android app</string>
+    <string name="nombre">Nombre</string>
+    <string name="teclea">Teclea tu nombre</string>
+    <string name="señora">Sra.</string>
+    <string name="señor">Sr.</string>
+    <string name="despedida">Despedida</string>
+    <string name="hola">HOLA</string>
+    <string name="adios">Adios</string>
+    <string name="chao">Hasta Luego</string>
+    <string name="mensaje"></string>
 </resources>
