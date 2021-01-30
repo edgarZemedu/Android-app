@@ -16,26 +16,34 @@ public class Ej1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ej1);
 
+        findViewById(R.id.buttonLimpiar).setVisibility(View.INVISIBLE);
+        findViewById(R.id.tvContador).setVisibility(View.INVISIBLE);
+
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                findViewById(R.id.buttonLimpiar).setVisibility(View.VISIBLE);
+                findViewById(R.id.tvContador).setVisibility(View.VISIBLE);
                 contador++;
                 if (contador > 1)
-                tvContador.setText("Has pulsado "+contador+" veces");
+                    tvContador.setText("Has pulsado "+Integer.toString(contador)+" veces");
+                else
+                    tvContador.setText("Has pulsado "+Integer.toString(contador)+" vez");
             }
         });
         findViewById(R.id.buttonLimpiar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (contador > 1)
-                    contador = 0;
+                findViewById(R.id.buttonLimpiar).setVisibility(View.INVISIBLE);
+                findViewById(R.id.tvContador).setVisibility(View.INVISIBLE);
+                contador = 0;
             }
         });
 
     }
 
-
     public void toMain(View view) {
         startActivity(new Intent(this,MainActivity.class));
     }
+
 }

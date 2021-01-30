@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android app</string>
+    <string name="nombre">Name</string>
+    <string name="teclea">Type you Name</string>
+    <string name="señora">Mrs.</string>
+    <string name="señor">Mr.</string>
+    <string name="despedida">Firewell</string>
+    <string name="hola">Hellow</string>
+    <string name="adios">Bye</string>
+    <string name="chao">So long</string>
+</resources>

@@ -8,5 +8,5 @@
     <string name="hola">HOLA</string>
     <string name="adios">Adios</string>
     <string name="chao">Hasta Luego</string>
-    <string name="mensaje"></string>
+    <string name="mensaje" translatable="false"></string>
 </resources>
