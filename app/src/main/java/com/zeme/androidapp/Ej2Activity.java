@@ -42,7 +42,7 @@ public class Ej2Activity extends AppCompatActivity {
 
             if (checkBox.isSelected()){
                 rgDespedida.setVisibility(view.VISIBLE);
-                RadioButton rbSelectedD = (RadioButton) rgDespedida.findViewById(rgDespedida.getCheckedRadioButtonId());
+                RadioButton rbSelectedD = rgDespedida.findViewById(rgDespedida.getCheckedRadioButtonId());
                 if (rgDespedida.isSelected()) {
                     String mensaje = bHola.getText().toString() + ", " + rbSelected.getText().toString() + editTextNombre.getText().toString()+
                             "\n"+ rbSelectedD.getText().toString();
