@@ -30,19 +30,21 @@ public class Ej3Activity extends AppCompatActivity {
 
     }
     public void cambiarMoneda(View view){
+
         bCambiar.setOnClickListener(view1 -> {
+            String mensajeSalida = null;
             double valor = (double) Double.parseDouble(editTextValor.getText().toString());
 
             if (rgMoneda.isSelected() && editTextValor.getText().toString()!="") {
                 RadioButton rbSelectedD = (RadioButton) rgMoneda.findViewById(rgMoneda.getCheckedRadioButtonId());
 
                 if (rbSelectedD.equals("Pts. a Euros")){
-                    String mensajeSalida = editTextValor.getText().toString() + " pesetas equivalen a " +
+                    mensajeSalida = editTextValor.getText().toString() + " pesetas equivalen a " +
                             String.valueOf(obtener2Decimales(deEurosAPeseta(valor))+ " Euros.");
                     tvMensaje.setText(mensajeSalida);
 
                 } else{
-                    String mensajeSalida = editTextValor.getText().toString() + " euros equivalen a " +
+                    mensajeSalida = editTextValor.getText().toString() + " euros equivalen a " +
                             String.valueOf(obtener2Decimales(dePesetaAEuros(valor))+ " Pesetas.");
                     tvMensaje.setText(mensajeSalida);
                 }

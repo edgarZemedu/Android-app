@@ -17,26 +17,27 @@ public class Ej1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_ej1);
 
         findViewById(R.id.buttonLimpiar).setVisibility(View.INVISIBLE);
-        findViewById(R.id.tvContador).setVisibility(View.INVISIBLE);
+        tvContador = findViewById(R.id.tvContador);
+        tvContador.setVisibility(View.INVISIBLE);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                findViewById(R.id.buttonLimpiar).setVisibility(View.VISIBLE);
-                findViewById(R.id.tvContador).setVisibility(View.VISIBLE);
                 contador++;
+                findViewById(R.id.buttonLimpiar).setVisibility(View.VISIBLE);
+                tvContador.setVisibility(View.VISIBLE);
                 if (contador > 1)
-                    tvContador.setText("Has pulsado "+Integer.toString(contador)+" veces");
+                    tvContador.setText(String.valueOf("Has pulsado "+contador+" veces"));
                 else
-                    tvContador.setText("Has pulsado "+Integer.toString(contador)+" vez");
+                    tvContador.setText(String.valueOf("Has pulsado "+contador+" vez"));
             }
         });
         findViewById(R.id.buttonLimpiar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                findViewById(R.id.buttonLimpiar).setVisibility(View.INVISIBLE);
-                findViewById(R.id.tvContador).setVisibility(View.INVISIBLE);
                 contador = 0;
+                findViewById(R.id.buttonLimpiar).setVisibility(View.INVISIBLE);
+                tvContador.setVisibility(View.INVISIBLE);
             }
         });
 

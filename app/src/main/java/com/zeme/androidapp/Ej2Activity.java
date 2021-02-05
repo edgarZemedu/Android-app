@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class Ej2Activity extends AppCompatActivity {
     EditText editTextNombre;
     RadioGroup rgSraSr, rgDespedida;
-    TextView tvTecleaN, tvtMensaje;
+    TextView tvTecleaN, tvResultado;
     CheckBox checkBox;
     Button bHola;
 
@@ -29,33 +29,33 @@ public class Ej2Activity extends AppCompatActivity {
         checkBox = findViewById(R.id.checkBox);
         rgDespedida = findViewById(R.id.rgDespedida);
         tvTecleaN = findViewById(R.id.tvTecleaN);
-        tvtMensaje = findViewById(R.id.tvMensaje);
+        tvResultado = findViewById(R.id.tvResultdo);
         bHola = findViewById(R.id.bHola);
+
+        rgDespedida.setVisibility(View.INVISIBLE);
     }
 
     public void onClickHOLA(View view) {
-        
-        rgDespedida.setVisibility(view.INVISIBLE);
+        String mensaje = null;
+        RadioButton rbSelected = (RadioButton) rgSraSr.findViewById(rgSraSr.getCheckedRadioButtonId());
+        if (editTextNombre.getText().toString()!="" && rbSelected.isActivated()){
 
-        if (editTextNombre.getText()!=null && rgSraSr.isSelected()){
-            RadioButton rbSelected = (RadioButton) rgSraSr.findViewById(rgSraSr.getCheckedRadioButtonId());
+            mensaje = bHola.getText().toString()+", "+rbSelected.getText().toString()+" "+ editTextNombre.getText().toString();
+            tvResultado.setText(mensaje);
 
             if (checkBox.isSelected()){
                 rgDespedida.setVisibility(view.VISIBLE);
+
                 RadioButton rbSelectedD = rgDespedida.findViewById(rgDespedida.getCheckedRadioButtonId());
                 if (rgDespedida.isSelected()) {
-                    String mensaje = bHola.getText().toString() + ", " + rbSelected.getText().toString() + editTextNombre.getText().toString()+
+                    mensaje = bHola.getText().toString() + ", " + rbSelected.getText().toString() + editTextNombre.getText().toString()+
                             "\n"+ rbSelectedD.getText().toString();
-                    tvtMensaje.setText(mensaje);
+                    tvResultado.setText(mensaje);
                 }
-
-            }else{
-                String mensaje = bHola.getText().toString()+", "+rbSelected.getText().toString()
-                        + editTextNombre.getText().toString();
-                tvtMensaje.setText(mensaje);
             }
+
         }else{
-           bHola.setOnClickListener(new MiOnClickListenerErrores());
+            Toast.makeText(view.getContext(),"ERROR. Debes elegir un tratamiento o poner tu nombre.",Toast.LENGTH_SHORT).show();
         }
     }
 }
