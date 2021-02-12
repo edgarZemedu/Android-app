@@ -31,7 +31,7 @@ public class Ej4Activity extends AppCompatActivity {
         bHola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (editTextNombre != null && rgSraSr.isSelected()){
+                if ((!editTextNombre.getText().toString().isEmpty()) && (rgSraSr.getCheckedRadioButtonId()!=-1)){
 
                     Intent intent = new Intent(Ej4Activity.this,Ej4_2Activity.class);
                     //capturar lo que haya seleccionado del radioButton
@@ -40,10 +40,10 @@ public class Ej4Activity extends AppCompatActivity {
                     String nombres = editTextNombre.getText().toString();
                     //Añadimos al intent la opción que se haya seleccionado con su nombre
                     intent.putExtra(MENSAJE, mensajeSaludo);
-                    intent.putExtra("nombres",nombres);
+                    intent.putExtra("nombre",nombres);
                     startActivity(intent);
                 }else{
-                    new MiOnClickListenerErrores();
+                    Toast.makeText(view.getContext(),"ERROR. Debes elegir un tratamiento o poner tu nombre.",Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -35,21 +35,21 @@ public class Ej3Activity extends AppCompatActivity {
             String mensajeSalida = null;
             double valor = (double) Double.parseDouble(editTextValor.getText().toString());
 
-            if (rgMoneda.isSelected() && editTextValor.getText().toString()!="") {
+            if ((rgMoneda.getCheckedRadioButtonId()!=-1) && (editTextValor.getText().toString()!=null)) {
                 RadioButton rbSelectedD = (RadioButton) rgMoneda.findViewById(rgMoneda.getCheckedRadioButtonId());
 
-                if (rbSelectedD.equals("Pts. a Euros")){
+                if (rbSelectedD.getText().toString().equals("Pts. a Euros")){
                     mensajeSalida = editTextValor.getText().toString() + " pesetas equivalen a " +
-                            String.valueOf(obtener2Decimales(deEurosAPeseta(valor))+ " Euros.");
+                            String.valueOf(obtener2Decimales(dePesetaAEuros(valor))+ " Euros.");
                     tvMensaje.setText(mensajeSalida);
 
                 } else{
-                    mensajeSalida = editTextValor.getText().toString() + " euros equivalen a " +
-                            String.valueOf(obtener2Decimales(dePesetaAEuros(valor))+ " Pesetas.");
+                    mensajeSalida = editTextValor.getText().toString() + " euro equivalen a " +
+                            String.valueOf(obtener2Decimales(deEurosAPeseta(valor))+ " Pesetas.");
                     tvMensaje.setText(mensajeSalida);
                 }
             }else{
-                Toast.makeText(this, "Error.Debes poner un valor numérico", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error. Debes poner un valor numérico o indicar el tipo de cambio", Toast.LENGTH_SHORT).show();
             }
         });
     }

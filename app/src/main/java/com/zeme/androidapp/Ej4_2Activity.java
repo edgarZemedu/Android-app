@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -29,36 +30,40 @@ public class Ej4_2Activity extends AppCompatActivity {
         cbDespedida = findViewById(R.id.cbDespedida);
         rgDespedida = findViewById(R.id.rgDespedida);
 
+        //visualizar saludo
         tvPersona.setText(getIntent().getStringExtra(MENSAJE));
+        rgDespedida.setVisibility(View.INVISIBLE);
 
-        Button bVolver = findViewById(R.id.bVolver);
-        bVolver.setOnClickListener(view -> {
-            if (cbDespedida.isSelected()){
-                onClickDespedida(view);
-                if (rgDespedida.isSelected()){
-                    RadioButton rbSelectedID = rgDespedida.findViewById(rgDespedida.getCheckedRadioButtonId());
-                    String mensajeToast = rbSelectedID.getText().toString()+", ";
+        cbDespedida.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                //visualizamos el tipo de despedida
+                rgDespedida.setVisibility(View.VISIBLE);
 
-                    Intent i = new Intent(Ej4_2Activity.this,Ej4Activity.class);
-                    i.putExtra("toast",mensajeToast);
-                    startActivity(i);
+                Button bVolver = findViewById(R.id.bVolver);
+                bVolver.setOnClickListener(view -> {
+                    if (rgDespedida.getCheckedRadioButtonId()!=-1){
 
-                }else{
-                    new MiOnClickListenerErrores();
-                }
-            }else{
-                Intent intent = new Intent(Ej4_2Activity.this,Ej4Activity.class);
-                startActivity(intent);
+                        RadioButton rbSelectedID = rgDespedida.findViewById(rgDespedida.getCheckedRadioButtonId());
+                        String mensajeToast = rbSelectedID.getText().toString()+", "+getIntent().getStringExtra("nombre");
+
+                        Toast.makeText(view.getContext(),mensajeToast,Toast.LENGTH_SHORT).show();
+
+                        Intent i = new Intent(Ej4_2Activity.this,Ej4Activity.class);
+                        i.putExtra("toast",mensajeToast);
+                        startActivity(i);
+
+                    }else{
+                        Toast.makeText(view.getContext(),"ERROR. Debes elegir un tratamiento de despedida",Toast.LENGTH_SHORT).show();
+                    }
+                    /////////
+                    Intent intent = new Intent(Ej4_2Activity.this,Ej4Activity.class);
+                    startActivity(intent);
+
+                });
             }
         });
 
     }
 
-    public void onClickDespedida(View view) {
-        if (cbDespedida.isSelected())
-            rgDespedida.setVisibility(view.VISIBLE);
-        else
-            rgDespedida.setVisibility(view.INVISIBLE);
-
-    }
 }
