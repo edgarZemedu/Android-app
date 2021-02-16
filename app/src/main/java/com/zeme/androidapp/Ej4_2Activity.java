@@ -56,7 +56,7 @@ public class Ej4_2Activity extends AppCompatActivity {
                     }else{
                         Toast.makeText(view.getContext(),"ERROR. Debes elegir un tratamiento de despedida",Toast.LENGTH_SHORT).show();
                     }
-                    /////////
+
                     Intent intent = new Intent(Ej4_2Activity.this,Ej4Activity.class);
                     startActivity(intent);
 

@@ -8,5 +8,7 @@
     <string name="hola">HOLA</string>
     <string name="adios">Adios</string>
     <string name="chao">Hasta Luego</string>
+    <string name="Error1">ERROR. Debes elegir un tratamiento</string>
+    <string name="Error2">ERROR. Debes elegir un tratamiento o poner tu nombre.</string>
     <string name="mensaje" translatable="false"></string>
 </resources>

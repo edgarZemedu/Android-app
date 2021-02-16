@@ -46,33 +46,33 @@ public class Ej2Activity extends AppCompatActivity {
                     String mensaje = bHola.getText().toString()+", "+rbSelected.getText().toString()+""+ editTextNombre.getText().toString();
                     tvResultado.setText(mensaje);
 
-                    //El caso de que le clickemos en el checkBox no se activa la visualizacion de despedida a menos que le das en el botón hola para que se visualice
-                    //Una vez que se esté ejecutando el prograam al quitar en el editText lo que hay y lo dejamos vacio se ejecuta igual el programa sin sacar el error
-
                     checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                             rgDespedida.setVisibility(view.VISIBLE);
+                            if (!checkBox.isChecked()){
+                                rgDespedida.setVisibility(view.INVISIBLE);
+                            }
                         }
                     });
                     RadioButton rbSelectedD = rgDespedida.findViewById(rgDespedida.getCheckedRadioButtonId());
-                    if (rgDespedida.getCheckedRadioButtonId()!=-1) {
-                         mensaje = null;
-                         mensaje = bHola.getText().toString() + ", " + rbSelected.getText().toString() +""+ editTextNombre.getText().toString() +
-                                "\n" + rbSelectedD.getText().toString();
-                        tvResultado.setText(mensaje);
-                    }else{
-                        Toast.makeText(view.getContext(),"ERROR. Debes elegir un tratamiento de despedida",Toast.LENGTH_SHORT).show();
-                    }
-
+                    if (checkBox.isChecked())
+                        if (rgDespedida.getCheckedRadioButtonId()!=-1) {
+                            mensaje = bHola.getText().toString() + ", " + rbSelected.getText().toString() +""+ editTextNombre.getText().toString() +
+                                    "\n"+rbSelectedD.getText().toString();
+                            tvResultado.setText(mensaje);
+                        }else{
+                            Toast.makeText(view.getContext(),R.string.Error1,Toast.LENGTH_SHORT).show();
+                        }
                 }else{
-                    Toast.makeText(view.getContext(),"ERROR. Debes elegir un tratamiento o poner tu nombre.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(),R.string.Error2,Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
 /* Creando un botón a parte, no sé me ejecutaba la clase anónima y tube que reahacer
+
     public void onClickHOLA(View view) {
 
         //String mensaje = null;

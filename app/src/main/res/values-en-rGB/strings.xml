@@ -9,4 +9,6 @@
     <string name="hola">Hellow</string>
     <string name="adios">Bye</string>
     <string name="chao">So long</string>
+    <string name="Error1">Bug, you must choose a treatment</string>
+    <string name="Error2">Bug, you must choose a treatment or put you name.</string>
 </resources>
