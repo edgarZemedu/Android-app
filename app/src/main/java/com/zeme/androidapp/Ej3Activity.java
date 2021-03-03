@@ -23,7 +23,6 @@ public class Ej3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ej3);
 
-        bCambiar = findViewById(R.id.bCambiar);
         rgMoneda = findViewById(R.id.rgMoneda);
         editTextValor = findViewById(R.id.editTextValor);
         tvMensaje = findViewById(R.id.tvMensaje);
