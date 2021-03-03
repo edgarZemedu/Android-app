@@ -29,7 +29,6 @@ public class Ej2_1Activity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(Ej2_1Activity.this,"Fruta: "+adapterView.getItemAtPosition(i).toString(),Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
